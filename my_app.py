@@ -54,7 +54,6 @@ st.dataframe(df)
 html = displacy.render(doc)
 st.write(util.get_svg(html), unsafe_allow_html=True)
 
-
 # TEXT PREPROCESSING
 cleaned_list = [token.text for token in doc if not token.is_stop and not token.is_punct]
 # for token in doc_cleaned:
@@ -63,3 +62,10 @@ cleaned_str = ' '.join(cleaned_list)
 st.markdown("**Text Cleaning** (Removed stop words and punctuation)")
 st.write(cleaned_str)
 
+# Lemmatizing
+lemmatized_list = [token.lemma_ for token in doc if not token.is_stop and not token.is_punct]
+lemmatized_str = ' '.join(lemmatized_list)
+st.markdown("**Text Lemmatizing** (converting a token to it’s root/base form)")
+st.write(lemmatized_str)
+
+# # Hashes
